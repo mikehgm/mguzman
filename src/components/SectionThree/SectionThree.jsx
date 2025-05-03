@@ -19,9 +19,7 @@ const SectionThree = () => {
           Me gusta capturar los momentos más importantes de la vida de las personas y crear recuerdos inolvidables. </p>
         <p className={styles.textJustify}>Ya sea un evento social o un video promocional para una empresa, me esfuerzo por capturar cada detalle importante, asegurándome de que sea de la mejor manera posible, tengo experiencia en la filmación de videos promocionales para empresas y negocios. Entiendo la importancia de mostrar lo mejor de un producto o servicio, y trabajo en estrecha colaboración con mis clientes para asegurarme de que sus necesidades y expectativas sean cumplidas.</p>
         <p className={styles.textJustify}>Ya sea que necesiten un video para redes sociales, un anuncio publicitario o un video corporativo, estoy aquí para ayudarles a contar su historia de la manera más efectiva posible.</p>
-        <ul className="actions">
-          <li><a href="#" className="button">Learn More</a></li>
-        </ul>
+        
       </div>
       <a href="#four" className="goto-next scrolly">Next</a>
     </section>

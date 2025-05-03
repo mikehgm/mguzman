@@ -24,9 +24,7 @@ const SectionTwo = () => {
       </p>
       <p className={styles.textJustify}>
         Siempre que tengo la oportunidad, aprovecho mis vacaciones para explorar nuevos lugares y llevar mi drone conmigo. Me encanta colaborar con amigos fotógrafos y videógrafos, ofreciendo mis servicios de tomas aéreas para dar un toque cinematográfico a sus proyectos. Ya sea para un video de boda, quinceañera, comercial o inmobiliario, una toma aérea siempre agrega una perspectiva única y fascinante.</p>
-      <ul className="actions">
-        <li><a href="#" className="button">Learn More</a></li>
-      </ul>
+      
     </div>
     <a href="#three" className="goto-next scrolly">Next</a>
   </section>
