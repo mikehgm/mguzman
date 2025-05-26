@@ -9,7 +9,7 @@ const SectionThree = () => {
   return (
     <section id="three" className={`spotlight style3 left ${styles.section}`} ref={ref}>
       <span className="fit main bottom">
-        <VideoPlayer videoSrc={videoSrc} />
+        <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} />
       </span>
       <div className="content">
         <header>

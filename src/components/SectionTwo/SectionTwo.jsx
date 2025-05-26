@@ -12,7 +12,7 @@ const SectionTwo = () => {
   return (
     <section id="two" className={`spotlight style2 right ${styles.section}`} ref={ref}>
     <div className="fit main">
-        <VideoPlayer videoSrc={videoSrc} />
+        <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} />
     </div>
     <div className="content">
       <header>
