@@ -23,7 +23,12 @@
   cursor: pointer;
 }
 
-.btnSubmit:hover {
+.btnSubmit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btnSubmit:hover:not(:disabled) {
   background: #ec5990;
 }
 
@@ -40,8 +45,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: #ffffff;
-  padding: 120px 180px;
-  z-index: 1;
+  width: min(90vw, 32em);
+  padding: 3em 2em;
+  z-index: 10001;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -76,4 +82,16 @@
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
+}
+
+.submitContentPopup a {
+  color: #bf1650;
+}
+
+.fieldError {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 0.85em;
+  margin: 0.4em 0 0;
+  text-align: left;
 }

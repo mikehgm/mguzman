@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './SectionThree.module.css';
 import videoSrc from '../../assets/videos/video-inmobiliario.mp4';
+import posterSrc from '../../assets/videos/video-inmobiliario-poster.jpg';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 const SectionThree = () => {
@@ -9,7 +10,7 @@ const SectionThree = () => {
   return (
     <section id="three" className={`spotlight style3 left ${styles.section}`} ref={ref}>
       <span className="fit main bottom">
-        <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} />
+        <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} poster={posterSrc} />
       </span>
       <div className="content">
         <header>

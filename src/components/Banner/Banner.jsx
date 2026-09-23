@@ -1,6 +1,5 @@
 import React from 'react';
-import bannerImage from '../../assets/images/pic01.jpg';
-import iamImage from '../../assets/images/iam.png';
+import iamImage from '../../assets/images/iam.jpg';
 import styles from './Banner.module.css';
 
 const Banner = () => (
@@ -12,7 +11,7 @@ const Banner = () => (
           Hola soy <span className={styles.iam}>Miguel Guzm&aacute;n</span>.
         </h2>
       </header>
-      <span className="image"><img src={iamImage} className={styles.circleImage} alt="" /></span>
+      <span className="image"><img src={iamImage} className={styles.circleImage} alt="Foto de Miguel Guzmán" /></span>
     </div>
     <a href="#one" className="goto-next scrolly">Next</a>
   </section>

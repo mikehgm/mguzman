@@ -1,21 +1,24 @@
 import React from 'react';
-import useNavToggle from '../../hooks/useNavToggle';
-import styles from './Header.module.css';
 
-const Header = () => {
-  const { toggleNav } = useNavToggle();
+const NAV_LINKS = [
+  { href: '#one', label: 'Experiencia' },
+  { href: '#two', label: 'Drone' },
+  { href: '#three', label: 'Video' },
+  { href: '#four', label: 'Servicios' },
+  { href: '#five', label: 'Contacto' },
+];
 
-  return (
-    <header id="header">
-      <h1 id="logo"><a href="/">Miguel Guzm&aacute;n</a></h1>
-      <button id={styles.navToggle} onClick={toggleNav} aria-label="Toggle Navigation">☰</button>
-      <nav id="nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
+const Header = () => (
+  <header id="header">
+    <h1 id="logo"><a href="#banner" className="scrolly">Miguel Guzm&aacute;n</a></h1>
+    <nav id="nav">
+      <ul>
+        {NAV_LINKS.map(({ href, label }) => (
+          <li key={href}><a href={href} className="scrolly">{label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </header>
+);
 
 export default Header;

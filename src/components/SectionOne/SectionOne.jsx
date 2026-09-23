@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styles from './SectionOne.module.css';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import videoSrc from '../../assets/videos/coding.mp4';
+import posterSrc from '../../assets/videos/coding-poster.jpg';
 
 
 const SectionOne = () => {
@@ -10,7 +11,7 @@ const SectionOne = () => {
   return (
   <section id="one" className={`spotlight style1 bottom ${styles.section}`}  ref={ref}>
     <div className="fit main">
-      <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc}/>
+      <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} poster={posterSrc} />
     </div>
     <div className="content">
       <div className="container">

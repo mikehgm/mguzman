@@ -1,97 +1,101 @@
-import { React, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
-const CONTACT_DATA = 'contactData';
+// EmailJS identifiers are public by design (they only allow sending through this template).
+const EMAILJS_SERVICE_ID = 'service_i71tnkp';
+const EMAILJS_TEMPLATE_ID = 'template_ymqwjou';
+const EMAILJS_PUBLIC_KEY = 'cA_dPAy6PMXLJyPnF';
 
 const Contact = () => {
-    const ref = useRef(null);
-    const form = useRef();
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const [isSubmitted, setSubmitted] = useState(false);
+    const form = useRef(null);
+    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
+    // null | 'sent' | 'error'
+    const [status, setStatus] = useState(null);
 
-    const handleFormSubmit = (data) => {
-        console.log('Form submitted', data);
+    const handleFormSubmit = async () => {
         try {
-            localStorage.setItem(CONTACT_DATA, JSON.stringify(data));
-            setSubmitted(true);
-            sendEmail(data);
-            handleReset();
+            await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, {
+                publicKey: EMAILJS_PUBLIC_KEY,
+            });
+            reset();
+            setStatus('sent');
         } catch (error) {
-            console.error('Error parsing user data from localStorage', error);
-        } 
-    }
-
-    const handleReset = () => {
-        reset();
-      };
+            console.error('EmailJS error', error);
+            setStatus('error');
+        }
+    };
 
     const closePopup = () => {
-        setSubmitted(false);
+        setStatus(null);
     };
-
-    const sendEmail = (data) => {
-        emailjs
-      .sendForm('service_i71tnkp', 'template_ymqwjou', form.current, {
-        publicKey: 'cA_dPAy6PMXLJyPnF',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-    };
-
-    console.log('errors', errors);
 
     return (
        <div>
-            {isSubmitted && (
-            <div className={`${styles.submitPopup}`}>
-                <div className={`${styles.submitContentPopup}`}>
-                    <h2>Enviado</h2>
-                    <p>Proximamente me pondre en contacto con usted.</p>
-                    <p>Gracias por su consideraci&oacute;n.</p>
-                    {/* Botón para cerrar el popup */}
-                    <button className={`${styles.btnSubmitPopup}`} onClick={closePopup}>Cerrar</button>
+            {status && (
+            <div className={styles.submitPopup} role="dialog" aria-modal="true" aria-labelledby="contact-popup-title">
+                <div className={styles.submitContentPopup}>
+                    {status === 'sent' ? (
+                        <>
+                            <h2 id="contact-popup-title">Enviado</h2>
+                            <p>Pr&oacute;ximamente me pondr&eacute; en contacto con usted.</p>
+                            <p>Gracias por su consideraci&oacute;n.</p>
+                        </>
+                    ) : (
+                        <>
+                            <h2 id="contact-popup-title">No se pudo enviar</h2>
+                            <p>Ocurri&oacute; un error al enviar el mensaje. Int&eacute;ntelo de nuevo o escr&iacute;bame a{' '}
+                                <a href="mailto:mguzman.code@gmail.com">mguzman.code@gmail.com</a>.</p>
+                        </>
+                    )}
+                    <button type="button" className={styles.btnSubmitPopup} onClick={closePopup}>Cerrar</button>
                 </div>
             </div>
             )}
-            <section id="five" className={`wrapper style2 special fade ${styles.section}`}  ref={ref}>
+            <section id="five" className={`wrapper style2 special fade ${styles.section}`}>
                 <div className="container">
                     <header>
-                        <h2>Contactame</h2>
-                        <p>Sera un placer colaborar con tu requerimiento tecnol&oacute;gico</p>
+                        <h2>Cont&aacute;ctame</h2>
+                        <p>Ser&aacute; un placer colaborar con tu requerimiento tecnol&oacute;gico</p>
                     </header>
-                    <form ref={form} onSubmit={handleSubmit(handleFormSubmit)} className="cta">
+                    <form ref={form} onSubmit={handleSubmit(handleFormSubmit)} className="cta" noValidate>
                         <div className="row gtr-uniform gtr-50">
                             <div className="col-12 col-12-xsmall">
-                                <input type="text" name="name" id="name" 
-                                {...register("name", { required: true })} placeholder="Nombre"/>
+                                <input type="text" id="name" placeholder="Nombre" aria-label="Nombre"
+                                    autoComplete="name" aria-invalid={errors.name ? 'true' : 'false'}
+                                    {...register('name', { required: 'Ingresa tu nombre' })} />
+                                {errors.name && <p className={styles.fieldError} role="alert">{errors.name.message}</p>}
                             </div>
                             <div className="col-12 col-12-xsmall">
-                                <input type="email" name="email" id="email" 
-                                {...register("email", { required: true })}placeholder="Email" />
+                                <input type="email" id="email" placeholder="Email" aria-label="Email"
+                                    autoComplete="email" aria-invalid={errors.email ? 'true' : 'false'}
+                                    {...register('email', {
+                                        required: 'Ingresa tu email',
+                                        pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Ingresa un email válido' },
+                                    })} />
+                                {errors.email && <p className={styles.fieldError} role="alert">{errors.email.message}</p>}
                             </div>
                             <div className="col-12 col-12-xsmall">
-                                <input type="number" name="phone" id="phone" 
-                                {...register("phone", { required: true })} placeholder="Telefono"/>
+                                <input type="tel" id="phone" placeholder="Teléfono" aria-label="Teléfono"
+                                    autoComplete="tel" aria-invalid={errors.phone ? 'true' : 'false'}
+                                    {...register('phone', {
+                                        required: 'Ingresa tu teléfono',
+                                        pattern: { value: /^\+?[\d\s()-]{7,20}$/, message: 'Ingresa un teléfono válido' },
+                                    })} />
+                                {errors.phone && <p className={styles.fieldError} role="alert">{errors.phone.message}</p>}
                             </div>
-                            <div className="col-2 col-12-xsmall">
-                                <button type="submit" className={`${styles.btnSubmit}`}>Enviar</button>
+                            <div className="col-12">
+                                <button type="submit" className={styles.btnSubmit} disabled={isSubmitting}>
+                                    {isSubmitting ? 'Enviando…' : 'Enviar'}
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </section>
-       </div> 
-        
-    
+       </div>
     );
-}
+};
 
 export default Contact;

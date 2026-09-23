@@ -1,18 +1,16 @@
 import React, { useRef } from 'react';
-import sectionTwoImage from '../../assets/images/pic03.jpg';
 import styles from './SectionTwo.module.css';
-import { motion, useInView } from 'framer-motion';
 import videoSrc from '../../assets/videos/drone-flight-salada.mp4';
+import posterSrc from '../../assets/videos/drone-flight-salada-poster.jpg';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 const SectionTwo = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section id="two" className={`spotlight style2 right ${styles.section}`} ref={ref}>
     <div className="fit main">
-        <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} />
+        <VideoPlayer classNameProp="backgroundVideo" videoSrc={videoSrc} poster={posterSrc} />
     </div>
     <div className="content">
       <header>

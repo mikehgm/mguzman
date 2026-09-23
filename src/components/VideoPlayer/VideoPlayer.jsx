@@ -1,16 +1,24 @@
-import React from 'react'; 
-import styles from  './VideoPlayer.module.css'; // Import your CSS file for styling
+import React from 'react';
+import styles from './VideoPlayer.module.css';
 
-const VideoPlayer = ({ classNameProp, videoSrc }) => { 
-    const className = classNameProp ? `${styles.backgroundVideo} ${classNameProp}` : styles.backgroundVideo; // Combine the class names if classNameProp is provided
+// Decorative, muted background video. playsInline is required for autoplay on iOS.
+const VideoPlayer = ({ classNameProp, videoSrc, poster }) => {
+    const className = classNameProp ? `${styles.backgroundVideo} ${classNameProp}` : styles.backgroundVideo;
     return (
         <div>
-            <video src={videoSrc} autoPlay loop muted className={className}>
-                Your browser does not support the video tag.
-            </video>
+            <video
+                src={videoSrc}
+                poster={poster}
+                className={className}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+            />
         </div>
     );
-}
-
+};
 
 export default VideoPlayer;

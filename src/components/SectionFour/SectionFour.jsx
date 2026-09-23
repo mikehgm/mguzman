@@ -3,12 +3,10 @@ import designImage from '../../assets/images/design-white.png';
 import droneImage from '../../assets/images/drone-white.png';
 import virtualTourImage from '../../assets/images/360-degrees-white.png';
 import styles from './SectionFour.module.css';
-import { motion, useInView } from 'framer-motion';
 
 
 const SectionFour = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section id="four" className={`wrapper style1 special fade-up ${styles.section}`} ref={ref}>

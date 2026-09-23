@@ -2220,6 +2220,7 @@ input, select, textarea {
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
 	input[type="number"],
 	select,
 	textarea {
@@ -2245,6 +2246,7 @@ input, select, textarea {
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
+		input[type="tel"]:invalid,
 		input[type="number"]:invalid,
 		select:invalid,
 		textarea:invalid {
@@ -2254,6 +2256,7 @@ input, select, textarea {
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
+		input[type="tel"]:focus,
 		input[type="number"]:focus,
 		select:focus,
 		textarea:focus {
@@ -2286,6 +2289,7 @@ input, select, textarea {
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
 	input[type="number"],
 	select {
 		height: 3em;
@@ -3210,6 +3214,7 @@ input, select, textarea {
 			.wrapper.style2 input[type="text"]:focus,
 			.wrapper.style2 input[type="password"]:focus,
 			.wrapper.style2 input[type="email"]:focus,
+			.wrapper.style2 input[type="tel"]:focus,
 			.wrapper.style2 select:focus,
 			.wrapper.style2 textarea:focus {
 				border-color: rgba(255, 255, 255, 0.5);
