@@ -2,6 +2,8 @@ import React from 'react';
 
 const NAV_LINKS = [
   { href: '#one', label: 'Experiencia' },
+  { href: '#ai-chat', label: 'IA Chat' },
+  { href: '#ai-automation', label: 'IA Automatización' },
   { href: '#two', label: 'Drone' },
   { href: '#three', label: 'Video' },
   { href: '#four', label: 'Servicios' },

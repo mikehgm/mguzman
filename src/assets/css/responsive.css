@@ -1,0 +1,72 @@
+/* Mobile refinements: stacked spotlight sections + burger nav polish.
+   Loaded after main.css so these rules win at small widths. */
+
+@media screen and (max-width: 736px) {
+
+  /* --- Spotlight sections: stack content, then video below --- */
+
+  .spotlight {
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Drop the fixed texture overlay so it doesn't take flex space */
+  .spotlight:before {
+    display: none !important;
+  }
+
+  /* Content flows normally, full width, above the video */
+  .spotlight .content {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    order: 1;
+  }
+
+  /* Video panel sits below the content, at a comfortable aspect ratio */
+  .spotlight .fit.main {
+    order: 2;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 56vw;
+    min-height: 200px;
+    max-height: 60vh;
+    margin: 0;
+  }
+
+  .spotlight .fit.main > div {
+    position: absolute;
+    inset: 0;
+  }
+
+  .spotlight .fit.main .backgroundVideo {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* The floating "Next" arrow doesn't fit the stacked layout */
+  .spotlight .goto-next {
+    display: none !important;
+  }
+
+  /* Offset anchors so smooth-scroll targets clear the fixed title bar */
+  #banner,
+  .spotlight,
+  .wrapper {
+    scroll-margin-top: 44px;
+  }
+
+  /* --- Burger / title bar polish --- */
+
+  #titleBar .toggle {
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+
+}

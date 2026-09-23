@@ -3,7 +3,6 @@ import styles from './Footer.module.css';
 
 const SOCIAL_LINKS = [
   { href: 'https://x.com/Mike_GITD', label: 'X (Twitter)', icon: 'fa-brands fa-square-x-twitter' },
-  { href: 'https://www.facebook.com/mikebassistx', label: 'Facebook', icon: 'fa-brands fa-square-facebook' },
   { href: 'https://www.linkedin.com/in/mhguzman/', label: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
   { href: 'https://github.com/mikehgm', label: 'GitHub', icon: 'fa-brands fa-square-github' },
 ];

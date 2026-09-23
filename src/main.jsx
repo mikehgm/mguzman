@@ -4,6 +4,7 @@ import App from './App';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './assets/css/main.css';
 import './assets/css/noscript.css';
+import './assets/css/responsive.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

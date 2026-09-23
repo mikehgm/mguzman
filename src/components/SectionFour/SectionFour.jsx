@@ -13,7 +13,7 @@ const SectionFour = () => {
         <div className="container">
             <header className="major">
                 <h2>Mis habilidades y servicios</h2>
-                <p>Desarrollo y Audiovisual</p>
+                <p>Desarrollo, IA y Audiovisual</p>
             </header>
             <div className="box alt">
                 <div className="row gtr-uniform">
@@ -30,6 +30,20 @@ const SectionFour = () => {
                         </span>
                         <h3>Dise&ntilde;o UX/UI</h3>
                         <p>Aplicaciones intuitivas y amigables para el usuario, adaptables para dispositivos moviles y de escritorio.</p>
+                    </section>
+                    <section className="col-4 col-6-medium col-12-xsmall">
+                        <span className="icon solid alt major">
+                            <i className={`fa-solid fa-comments ${styles.skillIcon}`}></i>
+                        </span>
+                        <h3>IA Chat</h3>
+                        <p>Asistentes conversacionales que atienden a tus clientes 24/7, responden dudas al instante y capturan prospectos para tu negocio.</p>
+                    </section>
+                    <section className="col-4 col-6-medium col-12-xsmall">
+                        <span className="icon solid alt major">
+                            <i className={`fa-solid fa-robot ${styles.skillIcon}`}></i>
+                        </span>
+                        <h3>IA Automatizaci&oacute;n</h3>
+                        <p>Sistemas RAG e integraciones que automatizan flujos de trabajo usando la informaci&oacute;n de tu empresa.</p>
                     </section>
                     <section className="col-4 col-6-medium col-12-xsmall">
                         <span className="icon solid alt major">

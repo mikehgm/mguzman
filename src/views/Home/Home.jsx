@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Banner from '../../components/Banner/Banner';
 import SectionOne from '../../components/SectionOne/SectionOne';
+import SectionAiChat from '../../components/SectionAiChat/SectionAiChat';
+import SectionAiAutomation from '../../components/SectionAiAutomation/SectionAiAutomation';
 import SectionTwo from '../../components/SectionTwo/SectionTwo';
 import SectionThree from '../../components/SectionThree/SectionThree';
 import SectionFour from '../../components/SectionFour/SectionFour';
@@ -14,6 +16,8 @@ const Home = () => (
     <Header />
     <Banner />
     <SectionOne />
+    <SectionAiChat />
+    <SectionAiAutomation />
     <SectionTwo />
     <SectionThree />
     <SectionFour />
