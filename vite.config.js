@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Served from https://mikehgm.github.io/mguzman/.
-// If the site moves to a custom domain (e.g. mguzman.dev), change base to '/'.
+// Served from https://mguzman.dev (custom domain, see public/CNAME).
+// If the site moves back to https://mikehgm.github.io/mguzman/, change base to '/mguzman/'.
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -11,5 +11,5 @@ export default defineConfig({
   server: {
     open: true,
   },
-  base: '/mguzman/',
+  base: '/',
 });

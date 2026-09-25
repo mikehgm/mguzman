@@ -2,7 +2,7 @@
 
 Personal website showcasing my work experience and the services I offer: web development, UX/UI design, videography, aerial drone footage, photogrammetry and 360° virtual tours.
 
-**Live site:** https://mikehgm.github.io/mguzman/
+**Live site:** https://mguzman.dev/
 
 ## Tech stack
 
